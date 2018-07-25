@@ -12,12 +12,17 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win and py<35]
   script: python -m pip install --no-deps --ignore-installed .
 
 requirements:
   build:
+    - {{ pin_compatible('numpy') }}
+    - {{ pin_compatible('pdal', max_pin='x.x') }}
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+  host:
     - {{ compiler('cxx') }}
   host:
     - python
@@ -28,8 +33,6 @@ requirements:
     - pip
   run:
     - python
-    - {{ pin_compatible('numpy') }}
-    - {{ pin_compatible('pdal', max_pin='x.x') }}
     - packaging
 
 test:
