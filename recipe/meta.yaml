@@ -20,16 +20,19 @@ requirements:
   build:
     - {{ compiler('cxx') }}
   host:
+    - libgdal  {{ gdal }}
     - python 3.6
     - numpy
     - cython
     - packaging
     - pdal 1.8.*
+    - libgdal 2.3.*
     - pip
   run:
     - python 3.6
     - {{ pin_compatible('numpy') }}
     - {{ pin_compatible('pdal', max_pin='x.x') }}
+    - {{ pin_compatible('libgdal', max_pin='x.x') }}
     - packaging
 
 test:
