@@ -1,6 +1,6 @@
 {% set name = "python-pdal" %}
-{% set version = "2.0.0" %}
-{% set sha256 = "60d41da79441d0aa9c44ec6ebb7497ffc0090d761259d42d4eeb05c7146bb432" %}
+{% set version = "2.1.5" %}
+{% set sha256 = "f90540fc25fbce772916ed7131612d1cef58e46865505dee0e50b15c3c5457ab" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   skip: True  # [win and py<35]
   script: python -m pip install --no-deps --ignore-installed .
 
