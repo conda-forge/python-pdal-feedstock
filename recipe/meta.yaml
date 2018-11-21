@@ -1,6 +1,6 @@
 {% set name = "python-pdal" %}
-{% set version = "2.1.6" %}
-{% set sha256 = "ad5487ace649bad22ee94e63646e286d883c120c7c896aabdfb400dff4726f06" %}
+{% set version = "2.1.7" %}
+{% set sha256 = "e49c13117945aa864a4520f75e40faf5b107dc8b8347ca36449046f8e05148d0" %}
 
 package:
   name: {{ name|lower }}
@@ -20,19 +20,20 @@ requirements:
   build:
     - {{ compiler('cxx') }}
   host:
-    - libgdal  {{ gdal }}
     - python 3.6
     - numpy
     - cython
     - packaging
     - pdal 1.8.*
     - libgdal 2.3.*
+    - gdal 2.3.*
     - pip
   run:
     - python 3.6
     - {{ pin_compatible('numpy') }}
     - {{ pin_compatible('pdal', max_pin='x.x') }}
     - {{ pin_compatible('libgdal', max_pin='x.x') }}
+    - {{ pin_compatible('gdal', max_pin='x.x') }}
     - packaging
 
 test:
