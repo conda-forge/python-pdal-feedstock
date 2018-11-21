@@ -1,6 +1,6 @@
 {% set name = "python-pdal" %}
-{% set version = "2.0.0" %}
-{% set sha256 = "60d41da79441d0aa9c44ec6ebb7497ffc0090d761259d42d4eeb05c7146bb432" %}
+{% set version = "2.1.8" %}
+{% set sha256 = "0a4969d94e2d63205e7c43dff19239c714247f8b22867da743bc69db742ae8c4" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   skip: True  # [win and py<35]
   script: python -m pip install --no-deps --ignore-installed .
 
@@ -20,16 +20,20 @@ requirements:
   build:
     - {{ compiler('cxx') }}
   host:
-    - python
+    - python 3.6
     - numpy
     - cython
     - packaging
-    - pdal 1.7.*
+    - pdal 1.8.*
+    - libgdal 2.3.*
+    - gdal 2.3.*
     - pip
   run:
-    - python
+    - python 3.6
     - {{ pin_compatible('numpy') }}
     - {{ pin_compatible('pdal', max_pin='x.x') }}
+    - {{ pin_compatible('libgdal', max_pin='x.x') }}
+    - {{ pin_compatible('gdal', max_pin='x.x') }}
     - packaging
 
 test:
