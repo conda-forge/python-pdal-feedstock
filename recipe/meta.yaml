@@ -12,24 +12,24 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
-  skip: True  # [win and py<35]
+  number: 1
+  skip: True  # [win and py<36]
   script: python -m pip install --no-deps --ignore-installed .
 
 requirements:
   build:
     - {{ compiler('cxx') }}
   host:
-    - python 3.6
+    - python
     - numpy
     - cython
     - packaging
-    - pdal 1.8.*
-    - libgdal 2.3.*
-    - gdal 2.3.*
+    - pdal
+    - libgdal
+    - gdal
     - pip
   run:
-    - python 3.6
+    - python 3.7
     - {{ pin_compatible('numpy') }}
     - {{ pin_compatible('pdal', max_pin='x.x') }}
     - {{ pin_compatible('libgdal', max_pin='x.x') }}
@@ -45,15 +45,15 @@ test:
     - cd test && python -m unittest test_pipeline
 
 about:
-  home: https://www.pdal.io
+  home: https://pdal.io
   license: BSD 3-Clause
   license_family: BSD
   license_file: LICENSE.txt
   summary: 'Point Data Abstraction Library (PDAL) Python Package'
   description: |
     Python package for the PDAL library.
-  doc_url: https://www.pdal.io
-  dev_url: https://github.com/pdal/python
+  doc_url: https://pdal.io
+  dev_url: https://github.com/PDAL/Python
 
 extra:
   recipe-maintainers:
