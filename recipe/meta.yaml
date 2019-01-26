@@ -53,7 +53,7 @@ about:
   description: |
     Python package for the PDAL library.
   doc_url: https://pdal.io
-  dev_url: https://github.com/PDAL/Python
+  dev_url: https://github.com/PDAL/python
 
 extra:
   recipe-maintainers:
