@@ -13,7 +13,7 @@ gdal:
 libgdal:
 - '2.4'
 numpy:
-- '1.9'
+- '1.14'
 pin_run_as_build:
   gdal:
     max_pin: x.x
