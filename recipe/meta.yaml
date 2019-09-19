@@ -1,6 +1,6 @@
 {% set name = "python-pdal" %}
-{% set version = "2.2.0" %}
-{% set sha256 = "1177f0de1200f50c0ff94658ebfc9ab8252886f19942d51fb21d82c02a3f7899" %}
+{% set version = "2.2.2" %}
+{% set sha256 = "d379e1ef4c8334b460f89576c373d00d842a1811f41e92380ef125b813ad8bb0" %}
 
 package:
   name: {{ name|lower }}
