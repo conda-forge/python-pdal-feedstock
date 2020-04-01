@@ -32,9 +32,13 @@ requirements:
     - packaging
     - scikit-build
 
+test:
+  commands:
+    - python -c 'import this'
+
 about:
   home: https://pdal.io
-  license: BSD 3-Clause
+  license: BSD
   license_family: BSD
   license_file: LICENSE.txt
   summary: 'Point Data Abstraction Library (PDAL) Python Package'
