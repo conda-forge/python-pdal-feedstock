@@ -1,6 +1,6 @@
 {% set name = "python-pdal" %}
-{% set version = "2.2.2" %}
-{% set sha256 = "d379e1ef4c8334b460f89576c373d00d842a1811f41e92380ef125b813ad8bb0" %}
+{% set version = "2.3.0" %}
+{% set sha256 = "332b548956d427830eb1873833c10e3d101001b9d49c2aacf308bb209fb4bd66" %}
 
 package:
   name: {{ name|lower }}
@@ -12,37 +12,25 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
-  skip: True  # [(win and vc<14) or py<35]
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  number: 0
+  skip: True  # [(win and vc<14) or py<36]
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
     - {{ compiler('cxx') }}
+    - cython
+    - packaging
+    - scikit-build
+    - numpy
+    - pip
   host:
     - python
     - numpy
+    - pdal
     - cython
     - packaging
-    - pdal
-    - libgdal
-    - gdal
-    - pip
-  run:
-    - python 3.7
-    - {{ pin_compatible('numpy') }}
-    - {{ pin_compatible('pdal', max_pin='x.x') }}
-    - {{ pin_compatible('libgdal', max_pin='x.x') }}
-    - {{ pin_compatible('gdal', max_pin='x.x') }}
-    - packaging
-
-test:
-  source_files:
-    - test
-  imports:
-    - pdal
-  commands:
-    - cd test && python -m unittest test_pipeline
+    - scikit-build
 
 about:
   home: https://pdal.io
