@@ -31,6 +31,10 @@ requirements:
     - cython
     - packaging
     - scikit-build
+  run:
+    - python
+    - numpy
+    - pdal
 
 test:
   commands:
