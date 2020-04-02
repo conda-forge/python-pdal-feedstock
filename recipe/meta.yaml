@@ -19,24 +19,16 @@ build:
 requirements:
   build:
     - {{ compiler('cxx') }}
-    - numpy
-    - pdal
-    - ninja
-    - cython
-    - packaging
-    - scikit-build
-    - pip
   host:
     - python
-    - numpy
     - pdal
-    - cython
-    - packaging
+    - {{ pin_compatible('numpy') }}
     - scikit-build
     - pip
+    - cython
   run:
     - python
-    - numpy
+    - {{ pin_compatible('numpy') }}
     - pdal
 
 test:
