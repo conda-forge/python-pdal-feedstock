@@ -19,10 +19,11 @@ build:
 requirements:
   build:
     - {{ compiler('cxx') }}
+    - numpy
+    - pdal
     - cython
     - packaging
     - scikit-build
-    - numpy
     - pip
   host:
     - python
