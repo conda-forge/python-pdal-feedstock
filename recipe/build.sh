@@ -7,4 +7,5 @@ if [ "$(uname)" == "Linux" ]; then
    export LDFLAGS="${LDFLAGS} -Wl,-rpath-link,${PREFIX}/lib"
 fi
 
-${PYTHON} -m pip install . -vv
+set CMAKE_GENERATOR=Ninja
+${PYTHON} setup.py install -- -DPython3_EXECUTABLE="${PYTHON}" -- -vv 
