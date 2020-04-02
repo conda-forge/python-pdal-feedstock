@@ -14,13 +14,14 @@ source:
 build:
   number: 0
   skip: True  # [(win and vc<14) or py<36]
-  script: {{ PYTHON }} -m pip install . -vv
+
 
 requirements:
   build:
     - {{ compiler('cxx') }}
     - numpy
     - pdal
+    - ninja
     - cython
     - packaging
     - scikit-build
@@ -40,7 +41,7 @@ requirements:
 
 test:
   commands:
-    - python -c 'import this'
+    - python -c "import this"
 
 about:
   home: https://pdal.io
