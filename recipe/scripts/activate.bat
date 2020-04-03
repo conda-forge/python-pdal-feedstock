@@ -7,8 +7,6 @@
 
 @REM Support plugins if the plugin directory exists
 @REM i.e if it has been manually created by the user
-@set "PDAL_DRIVER_PATH=%_CONDA_SET_PDAL_PYTHON_DRIVER_PATH%;%CONDA_PREFIX%\lib\site-packages\inb
-@if not exist %PDAL_DRIVER_PATH% (
-     set "PDAL_DRIVER_PATH="
-)
+@set "PDAL_DRIVER_PATH=%_CONDA_SET_PDAL_PYTHON_DRIVER_PATH%;%CONDA_PREFIX%\lib\site-packages\bin
+
 
