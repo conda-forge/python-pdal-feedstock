@@ -1,6 +1,6 @@
 {% set name = "python-pdal" %}
-{% set version = "2.3.0" %}
-{% set sha256 = "332b548956d427830eb1873833c10e3d101001b9d49c2aacf308bb209fb4bd66" %}
+{% set version = "2.3.2" %}
+{% set sha256 = "abddbf49b8b10ea71607ee1d494d91f7e75ae0fb34250f8dd002debed1818d99" %}
 
 package:
   name: {{ name|lower }}
@@ -12,8 +12,8 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 2
-  skip: True  # [(win and vc<14) or py<36]
+  number: 0
+  skip: true  # [(win and vc<14) or py<36]
 
 
 requirements:
@@ -39,7 +39,7 @@ about:
   home: https://pdal.io
   license: BSD-3-Clause
   license_file: LICENSE.txt
-  summary: 'Point Data Abstraction Library (PDAL) Python Package'
+  summary: Point Data Abstraction Library (PDAL) Python Package
   description: |
     Python package for the PDAL library.
   doc_url: https://pdal.io
