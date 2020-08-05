@@ -1,6 +1,6 @@
 {% set name = "python-pdal" %}
-{% set version = "2.3.3" %}
-{% set sha256 = "a78787b97da3cff4266f3428acdbb4a55293d05b9f0a55bf144475e819189e0d" %}
+{% set version = "2.3.4" %}
+{% set sha256 = "fc18a83fc3a748453c21deebe6a2e18aec1f82282f7dbb78583afa8254c36a3f" %}
 
 package:
   name: {{ name|lower }}
@@ -12,8 +12,8 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 3
-  skip: True  # [(win and vc<14) or py<36]
+  number: 0
+  skip: true  # [(win and vc<14) or py<36]
 
 
 requirements:
