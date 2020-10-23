@@ -5,9 +5,13 @@ Home: https://pdal.io
 
 Package license: BSD-3-Clause
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/python-pdal-feedstock/blob/master/LICENSE.txt)
 
 Summary: Point Data Abstraction Library (PDAL) Python Package
+
+Development: https://github.com/PDAL/python
+
+Documentation: https://pdal.io
 
 Python package for the PDAL library.
 
