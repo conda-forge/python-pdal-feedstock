@@ -8,6 +8,13 @@ if [[ -n "$PDAL_DRIVER_PATH" ]]; then
 fi
 
 SITE_PACKAGES=$(python -c 'import site; print(site.getsitepackages()[0])')
-export PDAL_DRIVER_PATH=$_CONDA_SET_PDAL_PYTHON_DRIVER_PATH:$SITE_PACKAGES/lib:$SITE_PACKAGES/lib64
+SITE_PACKAGES_PDAL=$(python -c 'import site; import os.path; site_packages_pdal = os.path.join(site.getsitepackages()[0], "pdal"); print( site_packages_pdal if os.path.exists(site_packages_pdal) else "")')
+
+if [[ ! -z "$SITE_PACKAGES_PDAL" ]]; then
+    export PDAL_DRIVER_PATH=$_CONDA_SET_PDAL_PYTHON_DRIVER_PATH:$SITE_PACKAGES/lib:$SITE_PACKAGES/lib64:$SITE_PACKAGES_PDAL
+else
+    export PDAL_DRIVER_PATH=$_CONDA_SET_PDAL_PYTHON_DRIVER_PATH:$SITE_PACKAGES/lib:$SITE_PACKAGES/lib64
+fi
+
 
 
