@@ -1,5 +1,5 @@
 diff --git a/pdal/drivers.py b/pdal/drivers.py
-index 54ea882..797ba26 100644
+index 54ea882..75970b3 100644
 --- a/pdal/drivers.py
 +++ b/pdal/drivers.py
 @@ -59,16 +59,18 @@ class Driver:
@@ -12,7 +12,7 @@ index 54ea882..797ba26 100644
 -    options = dict(
 -        json.loads(
 -            subprocess.run(
-+    p = subprocess.run(["pdal", "--drivers", "--showjson"], capture_output=True).stdout
++    p = subprocess.run(["pdal", "--drivers", "--showjson"], capture_output=True)
 +    if p.stderr:
 +        raise RuntimeError(f"Unable to run pdal --drivers with error '{p.stderr}'")
 +    drivers = json.loads(p.stdout)
