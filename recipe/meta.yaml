@@ -19,16 +19,22 @@ build:
 requirements:
   build:
     - {{ compiler('cxx') }}
-  host:
-    - python
+    - python {{ python }}
     - pdal
-    - {{ pin_compatible('numpy') }}
-    - scikit-build
     - pip
     - pybind11
+    - numpy
+    - scikit-build
+  host:
+    - python {{ python }}
+    - pdal
+    - numpy
+    - pip
+    - pybind11
+    - scikit-build
   run:
-    - python
-    - {{ pin_compatible('numpy') }}
+    - python {{ python }}
+    - numpy
     - pdal
 
 test:
