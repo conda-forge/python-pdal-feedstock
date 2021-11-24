@@ -1,5 +1,5 @@
 diff --git a/pdal/drivers.py b/pdal/drivers.py
-index 54ea882..9b43c68 100644
+index 54ea882..c67d45a 100644
 --- a/pdal/drivers.py
 +++ b/pdal/drivers.py
 @@ -5,6 +5,8 @@ from typing import Callable, ClassVar, FrozenSet, Mapping, Optional, Sequence, T
@@ -11,7 +11,7 @@ index 54ea882..9b43c68 100644
  StreamableTypes: FrozenSet
  
  
-@@ -59,16 +61,35 @@ class Driver:
+@@ -59,16 +61,40 @@ class Driver:
  
  
  def inject_pdal_drivers() -> None:
@@ -32,8 +32,11 @@ index 54ea882..9b43c68 100644
 +                    encoding='utf-8',
 +                    capture_output=True)
 +    output, error = p.stdout, p.stderr
++    import pdb;pdb.set_trace()
 +    if p.returncode:
-+        raise RuntimeError(f"Unable to run pdal --drivers with error '{error}'")
++        print (f'return code {p.returncode} error: "{error}"')
++        if error:
++            raise RuntimeError(f"Unable to run pdal --drivers with error '{error}'")
 +
 +    try:
 +        drivers = json.loads(output)
@@ -51,7 +54,9 @@ index 54ea882..9b43c68 100644
 +                    capture_output=True)
 +    output, error = p.stdout, p.stderr
 +    if p.returncode:
-+        raise RuntimeError(f"Unable to run pdal --options with error '{error}'")
++        print (f'return code {p.returncode} error: "{error}"')
++        if error:
++            raise RuntimeError(f"Unable to run pdal --options with error '{error}'")
 +
 +    options = dict( json.loads( output ))
      streamable = []
