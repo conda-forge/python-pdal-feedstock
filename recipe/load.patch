@@ -1,5 +1,5 @@
 diff --git a/pdal/drivers.py b/pdal/drivers.py
-index 54ea882..591a875 100644
+index 54ea882..9b43c68 100644
 --- a/pdal/drivers.py
 +++ b/pdal/drivers.py
 @@ -5,6 +5,8 @@ from typing import Callable, ClassVar, FrozenSet, Mapping, Optional, Sequence, T
@@ -11,7 +11,7 @@ index 54ea882..591a875 100644
  StreamableTypes: FrozenSet
  
  
-@@ -59,16 +61,33 @@ class Driver:
+@@ -59,16 +61,35 @@ class Driver:
  
  
  def inject_pdal_drivers() -> None:
@@ -28,30 +28,32 @@ index 54ea882..591a875 100644
 +
 +    command = 'pdal --drivers --showjson'
 +
-+    p = subprocess.Popen(shlex.split(command),
-+                       stdout = subprocess.PIPE,
-+                       stderr=subprocess.PIPE)
-+    output, error = p.communicate()
-+    if error:
++    p = subprocess.run(shlex.split(command),
++                    encoding='utf-8',
++                    capture_output=True)
++    output, error = p.stdout, p.stderr
++    if p.returncode:
 +        raise RuntimeError(f"Unable to run pdal --drivers with error '{error}'")
 +
 +    try:
-+        drivers = json.loads(output.decode('utf-8'))
-+    except json.decoder.JSONDecodeError:
++        drivers = json.loads(output)
++    except json.decoder.JSONDecodeError as e:
 +        print (type(output))
++        print (f'{e}')
++
 +        print (output.decode('utf-8'))
 +        raise
 +
 +    command = 'pdal --options all --showjson'
 +
-+    p = subprocess.Popen(shlex.split(command),
-+                       stdout = subprocess.PIPE,
-+                       stderr=subprocess.PIPE)
-+    output, error = p.communicate()
-+    if error:
++    p = subprocess.run(shlex.split(command),
++                    encoding='utf-8',
++                    capture_output=True)
++    output, error = p.stdout, p.stderr
++    if p.returncode:
 +        raise RuntimeError(f"Unable to run pdal --options with error '{error}'")
 +
-+    options = dict( json.loads( output.decode('utf-8') ))
++    options = dict( json.loads( output ))
      streamable = []
      for d in drivers:
          name = d["name"]
