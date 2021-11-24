@@ -1,5 +1,5 @@
 diff --git a/pdal/drivers.py b/pdal/drivers.py
-index 54ea882..bf604ea 100644
+index 54ea882..591a875 100644
 --- a/pdal/drivers.py
 +++ b/pdal/drivers.py
 @@ -5,6 +5,8 @@ from typing import Callable, ClassVar, FrozenSet, Mapping, Optional, Sequence, T
@@ -28,7 +28,7 @@ index 54ea882..bf604ea 100644
 +
 +    command = 'pdal --drivers --showjson'
 +
-+    p = subprocess.run(shlex.split(command),
++    p = subprocess.Popen(shlex.split(command),
 +                       stdout = subprocess.PIPE,
 +                       stderr=subprocess.PIPE)
 +    output, error = p.communicate()
@@ -44,7 +44,7 @@ index 54ea882..bf604ea 100644
 +
 +    command = 'pdal --options all --showjson'
 +
-+    p = subprocess.run(shlex.split(command),
++    p = subprocess.Popen(shlex.split(command),
 +                       stdout = subprocess.PIPE,
 +                       stderr=subprocess.PIPE)
 +    output, error = p.communicate()
