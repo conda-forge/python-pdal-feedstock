@@ -1,5 +1,5 @@
 diff --git a/pdal/drivers.py b/pdal/drivers.py
-index 54ea882..806c226 100644
+index 54ea882..ea15886 100644
 --- a/pdal/drivers.py
 +++ b/pdal/drivers.py
 @@ -5,6 +5,8 @@ from typing import Callable, ClassVar, FrozenSet, Mapping, Optional, Sequence, T
@@ -43,7 +43,7 @@ index 54ea882..806c226 100644
 +        print (type(output))
 +        print (f'{e}')
 +
-+        print (output.decode('utf-8'))
++        print (f"'{output}'")
 +        raise
 +
 +    command = 'pdal --options all --showjson'
