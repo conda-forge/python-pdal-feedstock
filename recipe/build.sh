@@ -8,7 +8,7 @@ if [ "$(uname)" == "Linux" ]; then
 fi
 
 set CMAKE_GENERATOR=Ninja
-${PYTHON} setup.py install -vv -- -DPython3_EXECUTABLE="${PYTHON}" --
+${PYTHON} -m pip install . -v
 
 ACTIVATE_DIR=$PREFIX/etc/conda/activate.d
 DEACTIVATE_DIR=$PREFIX/etc/conda/deactivate.d

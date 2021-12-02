@@ -1,9 +1,11 @@
 channel_sources:
-- conda-forge,defaults
+- conda-forge
 channel_targets:
 - conda-forge main
 cxx_compiler:
 - vs2017
+numpy:
+- '1.18'
 pin_run_as_build:
   python:
     min_pin: x.x
@@ -14,3 +16,6 @@ target_platform:
 - win-64
 vc:
 - '14'
+zip_keys:
+- - python
+  - numpy
