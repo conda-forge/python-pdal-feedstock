@@ -27,6 +27,7 @@ requirements:
     - pybind11
     - numpy
     - scikit-build
+    - make
   host:
     - python {{ python }}
     - pdal
