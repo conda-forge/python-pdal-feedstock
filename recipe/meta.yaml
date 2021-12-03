@@ -14,13 +14,14 @@ source:
     - load.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [(win and vc<14) or py<36]
 
 
 requirements:
   build:
     - {{ compiler('cxx') }}
+    - make
     - python {{ python }}
     - pdal
     - pip
