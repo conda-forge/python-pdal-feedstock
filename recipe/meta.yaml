@@ -14,7 +14,7 @@ source:
     - load.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [(win and vc<14) or py<36]
 
 
@@ -37,7 +37,7 @@ requirements:
     - scikit-build
   run:
     - python {{ python }}
-    - numpy
+    - {{ pin_compatible('numpy') }}
     - pdal
 
 test:
