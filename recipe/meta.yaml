@@ -36,7 +36,6 @@ requirements:
     - python {{ python }}
     - pdal
     - {{ pin_compatible('numpy') }}
-    - numpy *
     - pip
     - pybind11
     - scikit-build
