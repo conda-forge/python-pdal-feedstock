@@ -13,6 +13,7 @@ fi
 
 if [ "$CONDA_BUILD_CROSS_COMPILATION" == "1" ]; then
     export SKBUILD_CONFIGURE_OPTIONS=$CMAKE_ARGS
+    export CMAKE_OSX_ARCHITECTURES="arm64"
 
 fi
 
