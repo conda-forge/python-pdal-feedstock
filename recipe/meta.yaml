@@ -25,7 +25,7 @@ requirements:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - cython                                 # [build_platform != target_platform]
-    - numpy  *                               # [build_platform != target_platform]
+    - {{ pin_compatible('numpy') }}          # [build_platform != target_platform]
     - pybind11                               # [build_platform != target_platform]
     - {{ compiler('cxx') }}
     - make
@@ -35,13 +35,14 @@ requirements:
   host:
     - python {{ python }}
     - pdal
+    - {{ pin_compatible('numpy') }}
     - numpy *
     - pip
     - pybind11
     - scikit-build
   run:
     - python {{ python }}
-    - numpy *
+    - {{ pin_compatible('numpy') }}
     - pdal
     - openssl
 
