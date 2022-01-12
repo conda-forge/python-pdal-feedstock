@@ -2,9 +2,17 @@
 
 set -ex
 
-export CXXFLAGS="${CXXFLAGS} -std=c++11"
+# strip std settings from conda
+CXXFLAGS="${CXXFLAGS/-std=c++14/}"
+CXXFLAGS="${CXXFLAGS/-std=c++11/}"
+export CXXFLAGS
+
 if [ "$(uname)" == "Linux" ]; then
    export LDFLAGS="${LDFLAGS} -Wl,-rpath-link,${PREFIX}/lib"
+fi
+
+if [ "$CONDA_BUILD_CROSS_COMPILATION" == "1" ]; then
+    export SKBUILD_CONFIGURE_OPTIONS=$CMAKE_ARGS
 fi
 
 set CMAKE_GENERATOR=Ninja
