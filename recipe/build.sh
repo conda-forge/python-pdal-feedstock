@@ -11,7 +11,10 @@ if [ "$(uname)" == "Linux" ]; then
    export LDFLAGS="${LDFLAGS} -Wl,-rpath-link,${PREFIX}/lib"
 fi
 
-export SKBUILD_CONFIGURE_OPTIONS=$CMAKE_ARGS
+if [ "$CONDA_BUILD_CROSS_COMPILATION" == "1" ]; then
+    export SKBUILD_CONFIGURE_OPTIONS=$CMAKE_ARGS
+
+fi
 
 set CMAKE_GENERATOR=Ninja
 ${PYTHON} -m pip install . -v
