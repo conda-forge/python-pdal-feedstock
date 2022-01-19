@@ -12,7 +12,7 @@ if [ "$(uname)" == "Linux" ]; then
 fi
 
 if [ "$target_platform" = "osx-arm64" ]; then
-  export SKBUILD_CONFIGURE_OPTIONS=$CMAKE_ARGS
+# export SKBUILD_CONFIGURE_OPTIONS=$CMAKE_ARGS
   export CMAKE_OSX_ARCHITECTURES="arm64"
 fi
 
