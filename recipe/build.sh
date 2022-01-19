@@ -7,13 +7,10 @@ CXXFLAGS="${CXXFLAGS/-std=c++14/}"
 CXXFLAGS="${CXXFLAGS/-std=c++11/}"
 export CXXFLAGS
 
-if [ "$(uname)" == "Linux" ]; then
-   export LDFLAGS="${LDFLAGS} -Wl,-rpath-link,${PREFIX}/lib"
-fi
-
 if [ "$target_platform" = "osx-arm64" ]; then
 # export SKBUILD_CONFIGURE_OPTIONS=$CMAKE_ARGS
   export CMAKE_OSX_ARCHITECTURES="arm64"
+  rm -rf $BUILD_PREFIX/bin/x86_64-*
 fi
 
 
