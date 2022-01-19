@@ -11,10 +11,11 @@ if [ "$(uname)" == "Linux" ]; then
    export LDFLAGS="${LDFLAGS} -Wl,-rpath-link,${PREFIX}/lib"
 fi
 
-if [ "$CONDA_BUILD_CROSS_COMPILATION" == "1" ]; then
-    export CMAKE_OSX_ARCHITECTURES="arm64"
-
+if [ "$target_platform" = "osx-arm64" ]; then
+  export SKBUILD_CONFIGURE_OPTIONS=$CMAKE_ARGS
+  export CMAKE_OSX_ARCHITECTURES="arm64"
 fi
+
 
 set CMAKE_GENERATOR=Ninja
 ${PYTHON} -m pip install . -v
