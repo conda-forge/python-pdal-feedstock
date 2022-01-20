@@ -10,7 +10,7 @@ export CXXFLAGS
 if [ "$target_platform" = "osx-arm64" ]; then
 # export SKBUILD_CONFIGURE_OPTIONS=$CMAKE_ARGS
   export CMAKE_OSX_ARCHITECTURES="arm64"
-  rm -rf $BUILD_PREFIX/bin/x86_64-*
+ # rm -rf $BUILD_PREFIX/bin/x86_64-*
 fi
 
 
