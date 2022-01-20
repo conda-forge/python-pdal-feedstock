@@ -2,10 +2,16 @@
 
 set -ex
 
-export CXXFLAGS="${CXXFLAGS} -std=c++11"
-if [ "$(uname)" == "Linux" ]; then
-   export LDFLAGS="${LDFLAGS} -Wl,-rpath-link,${PREFIX}/lib"
+# strip std settings from conda
+CXXFLAGS="${CXXFLAGS/-std=c++14/}"
+CXXFLAGS="${CXXFLAGS/-std=c++11/}"
+export CXXFLAGS
+
+if [ "$target_platform" = "osx-arm64" ]; then
+  export SKBUILD_CONFIGURE_OPTIONS=${CMAKE_ARGS/CMAKE_INSTALL_PREFIX/CMAKE_INSTALL_PREFIX_BAK}
+  export CMAKE_OSX_ARCHITECTURES="arm64"
 fi
+
 
 set CMAKE_GENERATOR=Ninja
 ${PYTHON} -m pip install . -v
