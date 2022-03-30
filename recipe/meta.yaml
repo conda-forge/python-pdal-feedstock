@@ -1,6 +1,6 @@
 {% set name = "python-pdal" %}
-{% set version = "3.0.2" %}
-{% set sha256 = "8bb398a3e6b288014ced8c1635cf4e2358ef18b283943a8547af1b825e73130d" %}
+{% set version = "3.1.2" %}
+{% set sha256 = "2eceb190d164a27fc5bae0e034795d086f027c23e69eea6c05b4a709f344576f" %}
 
 package:
   name: {{ name|lower }}
@@ -10,11 +10,9 @@ source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://github.com/PDAL/python/archive/{{ version }}.tar.gz
   sha256: {{ sha256 }}
-  patches:
-    - load.patch
 
 build:
-  number: 3
+  number: 0
   skip: true  # [(win and vc<14) or py<36]
 
 
