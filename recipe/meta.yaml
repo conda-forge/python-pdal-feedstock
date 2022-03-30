@@ -1,6 +1,6 @@
 {% set name = "python-pdal" %}
-{% set version = "3.0.2" %}
-{% set sha256 = "8bb398a3e6b288014ced8c1635cf4e2358ef18b283943a8547af1b825e73130d" %}
+{% set version = "3.1.1" %}
+{% set sha256 = "e6d007e72b620a0a15d9679c8fe9ca9663727d9bc501a0c81f5b464a0985d64d" %}
 
 package:
   name: {{ name|lower }}
@@ -14,13 +14,13 @@ source:
     - load.patch
 
 build:
-  number: 3
+  number: 0
   skip: true  # [(win and vc<14) or py<36]
 
 
 requirements:
-  run_constrained:  # [osx]
-        - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx]
+  run_constrained:   # [osx]
+    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}      # [osx]
   build:
     - python {{ python }}
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
