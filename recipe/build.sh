@@ -18,7 +18,7 @@ ${PYTHON} -m pip install . -v
 mkdir plugins
 cd plugins
 wget https://files.pythonhosted.org/packages/18/6c/1077b11602cac1f11e0c80a7ca8008bf21b8d2b141c6022b56306ca407af/pdal-plugins-1.1.0.tar.gz
-tar xvf pdal-plugins-1.1.1.tar.gz
+tar xvf pdal-plugins-1.1.0.tar.gz
 cd pdal-plugins-1.1.0
 
 ${PYTHON} -m pip install . -v
