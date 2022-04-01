@@ -29,6 +29,7 @@ requirements:
     - pdal
     - pip
     - scikit-build
+    - wget
   host:
     - python {{ python }}
     - pdal
