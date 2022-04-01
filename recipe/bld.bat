@@ -1,6 +1,7 @@
 
 set CMAKE_GENERATOR=Ninja
 %PYTHON% setup.py install -vv -- -DPython3_EXECUTABLE="%PYTHON%"
+%PYTHON% -m pip install pdal-plugins --no-binary :all: -v
 
 set ACTIVATE_DIR=%PREFIX%\etc\conda\activate.d
 set DEACTIVATE_DIR=%PREFIX%\etc\conda\deactivate.d

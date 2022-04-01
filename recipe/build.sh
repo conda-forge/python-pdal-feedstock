@@ -15,6 +15,7 @@ fi
 
 set CMAKE_GENERATOR=Ninja
 ${PYTHON} -m pip install . -v
+${PYTHON} -m pip install pdal-plugins --no-binary :all: -v
 
 ACTIVATE_DIR=$PREFIX/etc/conda/activate.d
 DEACTIVATE_DIR=$PREFIX/etc/conda/deactivate.d
