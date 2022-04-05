@@ -40,7 +40,7 @@ requirements:
   run:
     - python {{ python }}
     - numpy
-    - {{ pin_compatible('pdal', min_pin='x.x', max_pin='x.x') }}
+    - pdal
     - openssl
 
 test:
