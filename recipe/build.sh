@@ -11,6 +11,7 @@ if [ "$target_platform" = "osx-arm64" ]; then
   export CMAKE_ARGS="-DCMAKE_PREFIX_PATH=$PREFIX $CMAKE_ARGS"
   export SKBUILD_CONFIGURE_OPTIONS=${CMAKE_ARGS/CMAKE_INSTALL_PREFIX/CMAKE_INSTALL_PREFIX_BAK}
   export CMAKE_OSX_ARCHITECTURES="arm64"
+  export CMAKE_IGNORE_PATH=$BUILD_PREFIX
 fi
 
 
@@ -22,7 +23,7 @@ curl -OL https://files.pythonhosted.org/packages/66/e6/377c308a7f7d7f2a97008721e
 tar xvf pdal-plugins-1.2.0.tar.gz
 cd pdal-plugins-1.2.0
 
-${PYTHON} -m pip install . -v
+${PYTHON} -m pip install . -vv -- -DCMAKE_GENERATOR=Ninja
 cd ../..
 
 ACTIVATE_DIR=$PREFIX/etc/conda/activate.d
