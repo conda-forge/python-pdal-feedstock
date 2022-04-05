@@ -20,19 +20,22 @@ requirements:
   run_constrained:  # [osx]
         - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx]
   build:
-    - python {{ python }}
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - numpy
-    - pybind11
     - {{ compiler('cxx') }}
-    - make
-    - {{ pin_compatible('pdal', max_pin='x.x') }}
+    - make  # [ unix ]
+    - scikit-build
+    - curl
+  host:
+    - python
+    - pdal
+    - numpy
     - pip
+    - pybind11
     - scikit-build
   run:
-    - python {{ python }}
+    - python
     - numpy
-    - {{ pin_compatible('pdal', max_pin='x.x') }}
+    - pdal
     - openssl
 
 test:
