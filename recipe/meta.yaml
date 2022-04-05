@@ -26,13 +26,13 @@ requirements:
     - pybind11
     - {{ compiler('cxx') }}
     - make
-    - pdal
+    - {{ pin_compatible('pdal', max_pin='x.x') }}
     - pip
     - scikit-build
     - curl
   host:
     - python {{ python }}
-    - pdal
+    - {{ pin_compatible('pdal', max_pin='x.x') }}
     - numpy
     - pip
     - pybind11
@@ -40,7 +40,7 @@ requirements:
   run:
     - python {{ python }}
     - numpy
-    - pdal
+    - {{ pin_compatible('pdal', max_pin='x.x') }}
     - openssl
 
 test:
