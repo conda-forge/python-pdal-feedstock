@@ -23,7 +23,7 @@ curl -OL https://files.pythonhosted.org/packages/66/e6/377c308a7f7d7f2a97008721e
 tar xvf pdal-plugins-1.2.0.tar.gz
 cd pdal-plugins-1.2.0
 
-${PYTHON} -m pip install . -vv -- -DCMAKE_GENERATOR=Ninja
+${PYTHON} -m pip install . -v
 cd ../..
 
 ACTIVATE_DIR=$PREFIX/etc/conda/activate.d
