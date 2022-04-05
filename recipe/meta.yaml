@@ -24,19 +24,15 @@ requirements:
     - {{ compiler('cxx') }}
     - make  # [ unix ]
     - scikit-build
+    - pybind11
     - curl
   host:
     - python
     - pdal
     - numpy
-    - pip
-    - pybind11
-    - scikit-build
   run:
-    - python
-    - numpy
-    - pdal
-    - openssl
+    - {{ pin_compatible('numpy') }}
+    - {{ pin_compatible('pdal') }}
 
 test:
   commands:
