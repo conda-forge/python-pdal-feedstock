@@ -26,6 +26,7 @@ requirements:
     - scikit-build
     - pybind11
     - curl
+    - pip
   host:
     - python
     - pdal
