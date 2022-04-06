@@ -26,7 +26,7 @@ cd pdal-plugins-1.2.0
 
 # scikit-build only passes PYTHON_EXECUTABLE and doesn't pass Python3_EXECUTABLE
 # Also don't set CMAKE_INSTALL_PREFIX as it interferes with scikit-build
-export SKBUILD_CONFIGURE_OPTIONS="${CMAKE_ARGS} -DPython3_EXECUTABLE=$PREFIX/bin/python -DPython_EXECUTABLE=$PREFIX/bin/python -DPdal_DIR=$PREFIX/lib/cmake/PDAL"
+export CMAKE_ARGS="${CMAKE_ARGS} -DPython3_EXECUTABLE=$PREFIX/bin/python -DPython_EXECUTABLE=$PREFIX/bin/python -DPdal_DIR=$PREFIX/lib/cmake/PDAL"
 ${PYTHON} -m pip install . -vv
 cd ../..
 
