@@ -9,6 +9,7 @@ export CXXFLAGS
 
 if [ "$target_platform" = "osx-arm64" ]; then
   export SKBUILD_CONFIGURE_OPTIONS=${CMAKE_ARGS/CMAKE_INSTALL_PREFIX/CMAKE_INSTALL_PREFIX_BAK}
+  export SKBUILD_CONFIGURE_OPTIONS="-DCMAKE_SYSTEM_PREFIX=$PREFIX $SKBUILD_CONFIGURE_OPTIONS -DCMAKE_SYSTEM_PREFIX_PATH=$PREFIX"
   export CMAKE_OSX_ARCHITECTURES="arm64"
 fi
 
@@ -20,10 +21,10 @@ curl -OL https://files.pythonhosted.org/packages/66/e6/377c308a7f7d7f2a97008721e
 tar xvf pdal-plugins-1.2.0.tar.gz
 cd pdal-plugins-1.2.0
 
-if [ "$CONDA_BUILD_CROSS_COMPILATION" == "1" ]; then
-rm $BUILD_PREFIX/lib/libpdal*
-rm $BUILD_PREFIX/lib/libpython*
-fi
+#if [ "$CONDA_BUILD_CROSS_COMPILATION" == "1" ]; then
+#rm $BUILD_PREFIX/lib/libpdal*
+#rm $BUILD_PREFIX/lib/libpython*
+#fi
 
 ${PYTHON} -m pip install . -v
 cd ../..
