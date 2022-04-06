@@ -8,8 +8,6 @@ cxx_compiler:
 - vs2017
 numpy:
 - '1.21'
-openssl:
-- 1.1.1
 pin_run_as_build:
   curl:
     max_pin: x
