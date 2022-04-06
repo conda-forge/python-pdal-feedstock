@@ -28,6 +28,8 @@ requirements:
     - pybind11                               # [build_platform != target_platform]
     - curl
     - cmake
+    - pdal
+    - openssl
 
   host:
     - python
