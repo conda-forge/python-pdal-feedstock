@@ -14,7 +14,7 @@ fi
 
 
 set CMAKE_GENERATOR=Ninja
-${PYTHON} -m pip install . -v
+${PYTHON} -m pip install . -i https://pypi.python.org/simple -v
 
 mkdir plugins && cd plugins
 ${PYTHON} -m pip install pdal-plugins -v
