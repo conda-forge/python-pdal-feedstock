@@ -13,7 +13,6 @@ if [ "$target_platform" = "osx-arm64" ]; then
 fi
 
 
-set CMAKE_GENERATOR=Ninja
 ${PYTHON} -m pip install . -v
 
 mkdir plugins && cd plugins
