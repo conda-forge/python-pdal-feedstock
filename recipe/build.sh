@@ -25,7 +25,7 @@ cd pdal-plugins-1.2.0
 #rm $BUILD_PREFIX/lib/libpython*
 #fi
 
-${PYTHON} -m pip install . -v --install-option="-- -DPdal_DIR=$PREFIX/lib/cmake/PDAL -DPython3_EXECUTABLE=$PREFIX/bin/python"
+${PYTHON} -m pip install . -v --install-option="-- -DPdal_DIR=$PREFIX/lib/cmake/PDAL -DPYTHON_EXECUTABLE=$PREFIX/bin/python"
 cd ../..
 
 ACTIVATE_DIR=$PREFIX/etc/conda/activate.d

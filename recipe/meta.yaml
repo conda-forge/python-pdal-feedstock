@@ -29,7 +29,6 @@ requirements:
     - curl
     - cmake
     - pdal
-    - openssl
 
   host:
     - python
@@ -42,7 +41,6 @@ requirements:
     - {{ pin_compatible('numpy') }}
     - {{ pin_compatible('pdal', max_pin='x.x') }}
     - python
-    - openssl
 
 test:
   commands:
