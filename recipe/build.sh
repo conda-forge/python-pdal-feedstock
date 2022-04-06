@@ -14,10 +14,12 @@ fi
 
 
 set CMAKE_GENERATOR=Ninja
+${PYTHON} -m pip config -v list
 ${PYTHON} -m pip install . -v
 
 mkdir plugins && cd plugins
-${PYTHON} -m pip install pdal-plugins --extra-index-url https://pypi.python.org/simple  -v
+${PYTHON} -m pip install -h
+${PYTHON} -m pip install pdal-plugins --index-url https://pypi.python.org/simple  -v
 
 ACTIVATE_DIR=$PREFIX/etc/conda/activate.d
 DEACTIVATE_DIR=$PREFIX/etc/conda/deactivate.d
