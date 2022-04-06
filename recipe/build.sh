@@ -8,7 +8,6 @@ CXXFLAGS="${CXXFLAGS/-std=c++11/}"
 export CXXFLAGS
 
 if [ "$target_platform" = "osx-arm64" ]; then
-  export SKBUILD_CONFIGURE_OPTIONS=${CMAKE_ARGS/CMAKE_INSTALL_PREFIX/CMAKE_INSTALL_PREFIX_BAK}
   export CMAKE_OSX_ARCHITECTURES="arm64"
 fi
 
@@ -25,7 +24,10 @@ cd pdal-plugins-1.2.0
 #rm $BUILD_PREFIX/lib/libpython*
 #fi
 
-${PYTHON} -m pip install . -v --install-option="-- -DPdal_DIR=$PREFIX/lib/cmake/PDAL -DPython_EXECUTABLE=$PREFIX/bin/python"
+# scikit-build only passes PYTHON_EXECUTABLE and doesn't pass Python3_EXECUTABLE
+# Also don't set CMAKE_INSTALL_PREFIX as it interferes with scikit-build
+export SKBUILD_CONFIGURE_OPTIONS="${CMAKE_ARGS} -DPython3_EXECUTABLE=$PREFIX/bin/python -DPython_EXECUTABLE=$PREFIX/bin/python -DPdal_DIR=$PREFIX/lib/cmake/PDAL"
+${PYTHON} -m pip install . -vv
 cd ../..
 
 ACTIVATE_DIR=$PREFIX/etc/conda/activate.d
