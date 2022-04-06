@@ -12,7 +12,7 @@ if [ "$target_platform" = "osx-arm64" ]; then
 fi
 
 # scikit-build only passes PYTHON_EXECUTABLE and doesn't pass Python3_EXECUTABLE
-export CMAKE_ARGS="${CMAKE_ARGS} -DPython3_EXECUTABLE=$PREFIX/bin/python -DPython_EXECUTABLE=$PREFIX/bin/python -DPdal_DIR=$PREFIX/lib/cmake/PDAL"
+export CMAKE_ARGS="${CMAKE_ARGS} -DPython3_EXECUTABLE=$PREFIX/bin/python -DPython_EXECUTABLE=$PREFIX/bin/python -DPdal_DIR=$PREFIX/lib/cmake/PDAL -LAH"
 
 ${PYTHON} -m pip install . -v
 
