@@ -32,7 +32,7 @@ requirements:
     - pdal
     - numpy
     - pip
-    - pybind11-abi
+    - pybind11
     - scikit-build
   run:
     - {{ pin_compatible('numpy') }}
