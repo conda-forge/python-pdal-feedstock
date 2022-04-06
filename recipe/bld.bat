@@ -5,15 +5,6 @@ set CMAKE_GENERATOR=Ninja
 
 %PYTHON% -m pip install pdal-plugins --no-binary :all:
 
-REM mkdir plugins
-REM cd plugins
-REM curl -OL https://files.pythonhosted.org/packages/18/6c/1077b11602cac1f11e0c80a7ca8008bf21b8d2b141c6022b56306ca407af/pdal-plugins-1.1.0.tar.gz
-REM tar xvf pdal-plugins-1.1.0.tar.gz
-REM cd pdal-plugins-1.1.0
-
-REM %PYTHON% -m pip install . -v
-REM cd ../..
-
 set ACTIVATE_DIR=%PREFIX%\etc\conda\activate.d
 set DEACTIVATE_DIR=%PREFIX%\etc\conda\deactivate.d
 mkdir %ACTIVATE_DIR%
