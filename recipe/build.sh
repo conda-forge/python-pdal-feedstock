@@ -20,6 +20,11 @@ curl -OL https://files.pythonhosted.org/packages/66/e6/377c308a7f7d7f2a97008721e
 tar xvf pdal-plugins-1.2.0.tar.gz
 cd pdal-plugins-1.2.0
 
+if [ "$CONDA_BUILD_CROSS_COMPILATION" == "1" ]; then
+rm $BUILD_PREFIX/lib/libpdal*
+rm $BUILD_PREFIX/lib/libpython*
+fi
+
 ${PYTHON} -m pip install . -v
 cd ../..
 
