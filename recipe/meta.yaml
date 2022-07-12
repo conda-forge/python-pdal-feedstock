@@ -29,6 +29,7 @@ requirements:
     - curl
     - cmake
     - pdal
+  skip: true  # [py<38 and linux]
 
   host:
     - python
