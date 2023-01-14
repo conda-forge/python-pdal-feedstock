@@ -39,7 +39,6 @@ requirements:
     - scikit-build
   run:
     - {{ pin_compatible('numpy') }}
-    - {{ pin_compatible('pdal', max_pin='x.x') }}
     - python
 
 test:

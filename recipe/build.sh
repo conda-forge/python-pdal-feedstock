@@ -12,9 +12,9 @@ if [ "$target_platform" = "osx-arm64" ]; then
 fi
 
 # scikit-build only passes PYTHON_EXECUTABLE and doesn't pass Python3_EXECUTABLE
-export CMAKE_ARGS="${CMAKE_ARGS} -DPython3_EXECUTABLE=$PREFIX/bin/python -DPython_EXECUTABLE=$PREFIX/bin/python -DPDAL_DIR=$PREFIX -LAH"
+export CMAKE_ARGS="${CMAKE_ARGS} -DPDAL_DIR=$PREFIX -LAH"
 
-${PYTHON} -m pip install . -v
+python -m pip install . -v
 
 mkdir plugins && cd plugins
 curl -OL https://files.pythonhosted.org/packages/66/e6/377c308a7f7d7f2a97008721e83061308a56e23f6be3b07989d44a4cfa9a/pdal-plugins-1.2.0.tar.gz
@@ -26,7 +26,7 @@ cd pdal-plugins-1.2.0
 #rm $BUILD_PREFIX/lib/libpython*
 #fi
 
-${PYTHON} -m pip install . -vv
+python -m pip install . -vv
 cd ../..
 
 ACTIVATE_DIR=$PREFIX/etc/conda/activate.d
