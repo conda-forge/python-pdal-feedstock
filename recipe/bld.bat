@@ -1,6 +1,6 @@
 
 set CMAKE_GENERATOR=Ninja
-%PYTHON% setup.py install -vv -- -DPython3_EXECUTABLE="%PYTHON%"
+%PYTHON% setup.py install --single-version-externally-managed -vv -- -DPython3_EXECUTABLE="%PYTHON%"
 
 
 
@@ -31,3 +31,9 @@ if errorlevel 1 exit 1
 copy %RECIPE_DIR%\scripts\deactivate.sh %DEACTIVATE_DIR%\pdal-python-deactivate.sh
 if errorlevel 1 exit 1
 
+:: Copy powershell activation scripts
+copy %RECIPE_DIR%\scripts\activate.ps1 %ACTIVATE_DIR%\pdal-python-activate.ps1
+if errorlevel 1 exit 1
+
+copy %RECIPE_DIR%\scripts\deactivate.ps1 %DEACTIVATE_DIR%\pdal-python-deactivate.ps1
+if errorlevel 1 exit 1
