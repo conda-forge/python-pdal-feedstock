@@ -12,7 +12,7 @@ index db219f0..04c424b 100644
  }
  
 diff --git a/pdal/PyArray.hpp b/pdal/PyArray.hpp
-index 91d3e53..a2bda92 100644
+index 91d3e53..1781bc1 100644
 --- a/pdal/PyArray.hpp
 +++ b/pdal/PyArray.hpp
 @@ -38,6 +38,9 @@
@@ -25,3 +25,13 @@ index 91d3e53..a2bda92 100644
  namespace pdal
  {
  namespace python
+@@ -55,6 +58,9 @@ public:
+     Array(PyArrayObject* array);
+     ~Array();
+ 
++    Array(Array&& a) = default;
++    Array& operator=(Array&& a) = default;
++
+     bool rowMajor() const { return m_rowMajor; };
+     Shape shape() const { return m_shape; }
+     const Fields& fields() const { return m_fields; };
