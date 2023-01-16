@@ -1,0 +1,27 @@
+diff --git a/pdal/PyArray.cpp b/pdal/PyArray.cpp
+index db219f0..04c424b 100644
+--- a/pdal/PyArray.cpp
++++ b/pdal/PyArray.cpp
+@@ -164,7 +164,7 @@ Array::~Array()
+ ArrayIter& Array::iterator()
+ {
+     ArrayIter *it = new ArrayIter(m_array);
+-    m_iterators.push_back(std::unique_ptr<ArrayIter>(it));
++    m_iterators.emplace_back((it));
+     return *it;
+ }
+ 
+diff --git a/pdal/PyArray.hpp b/pdal/PyArray.hpp
+index 91d3e53..a2bda92 100644
+--- a/pdal/PyArray.hpp
++++ b/pdal/PyArray.hpp
+@@ -38,6 +38,9 @@
+ #include <pdal/io/MemoryViewReader.hpp>
+ #include <numpy/ndarraytypes.h>
+ 
++#include <vector>
++#include <memory>
++
+ namespace pdal
+ {
+ namespace python

@@ -10,11 +10,12 @@ source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://github.com/PDAL/python/archive/{{ version }}.tar.gz
   sha256: {{ sha256 }}
-
+  patches:
+    - pyarray-win.patch  # [win]
 
 build:
-  number: 1
-  skip: true  # [(win and vc<14) or (py<36) or (py<38 and linux)]
+  number: 2
+  skip: true  # [(win and vc<14)]
 
 
 requirements:
