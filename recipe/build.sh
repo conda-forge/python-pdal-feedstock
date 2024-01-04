@@ -17,9 +17,9 @@ export CMAKE_ARGS="${CMAKE_ARGS} -DPDAL_DIR=$PREFIX -LAH"
 ${PYTHON} -m pip install . -v
 
 mkdir plugins && cd plugins
-curl -OL https://files.pythonhosted.org/packages/66/e6/377c308a7f7d7f2a97008721e83061308a56e23f6be3b07989d44a4cfa9a/pdal-plugins-1.2.0.tar.gz
-tar xvf pdal-plugins-1.2.0.tar.gz
-cd pdal-plugins-1.2.0
+curl -OL https://files.pythonhosted.org/packages/ef/a7/eff3213c29a2c5e2c3de594f2459412e3e11f7dff59ad52a8717810c8821/pdal-plugins-1.3.0.tar.gz
+tar xvf pdal-plugins-1.3.0.tar.gz
+cd pdal-plugins-1.3.0
 
 #if [ "$CONDA_BUILD_CROSS_COMPILATION" == "1" ]; then
 #rm $BUILD_PREFIX/lib/libpdal*

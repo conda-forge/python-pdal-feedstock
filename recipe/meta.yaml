@@ -1,6 +1,6 @@
 {% set name = "python-pdal" %}
-{% set version = "3.2.3" %}
-{% set sha256 = "763676f4262fcc73002dfdb826381eb174c81076a4b31f06f43e3f4efbfa4814" %}
+{% set version = "3.3.0" %}
+{% set sha256 = "c6ea0b3a6ffa784db7fc74008ee61215bad46b481cf3a4657541b7c598aae0ba" %}
 
 package:
   name: {{ name|lower }}
@@ -13,7 +13,7 @@ source:
 
 
 build:
-  number: 6
+  number: 0
   skip: true  # [(win and vc<14) or (py<36) or (py<38 and linux)]
 
 
