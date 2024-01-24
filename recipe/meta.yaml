@@ -32,12 +32,12 @@ requirements:
     - pdal
     - ninja
     - scikit-build
+    - pip
 
   host:
     - python
-    - {{ pin_compatible('pdal', max_pin='x.x.x') }}
-    - {{ pin_compatible('numpy') }}
-    - pip
+    - pdal
+    - numpy
     - pybind11
     - scikit-build
   run:
