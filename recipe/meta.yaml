@@ -13,7 +13,7 @@ source:
 
 
 build:
-  number: 1
+  number: 2
   skip: true  # [(win and vc<14) or (py<36) or (py<38 and linux)]
 
 
@@ -37,12 +37,12 @@ requirements:
     - python
     - pdal
     - numpy
-    - pip
     - pybind11
     - scikit-build
+    - pip
   run:
     - {{ pin_compatible('numpy') }}
-    - {{ pin_compatible('pdal', max_pin='x.x') }}
+    - {{ pin_compatible('pdal', max_pin='x.x.x') }}
     - python
 
 test:
