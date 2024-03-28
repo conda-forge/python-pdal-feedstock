@@ -13,7 +13,7 @@ fi
 
 
 # scikit-build only passes PYTHON_EXECUTABLE and doesn't pass Python3_EXECUTABLE
-export CMAKE_ARGS="${CMAKE_ARGS} -DPDAL_DIR=$PREFIX -LAH -DPython3_ROOT_DIR=$PREFIX -DPython3_EXECUTABLE=$Python3_EXECUTABLE"
+export CMAKE_ARGS="${CMAKE_ARGS} -DPDAL_DIR=$PREFIX -LAH -DPython3_ROOT_DIR=$PREFIX -DPython3_EXECUTABLE=$PREFIX/bin/python"
 
 ${PYTHON} -m pip install . -v
 
