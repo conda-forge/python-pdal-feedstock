@@ -17,7 +17,7 @@ if [ "$CONDA_BUILD_CROSS_COMPILATION" == "1" ]; then
 fi
 
 # scikit-build only passes PYTHON_EXECUTABLE and doesn't pass Python3_EXECUTABLE
-export CMAKE_ARGS="${CMAKE_ARGS} -DPDAL_DIR=$PREFIX -LAH "
+export CMAKE_ARGS="${CMAKE_ARGS} -DPDAL_DIR=$PREFIX -LAH --debug_find"
 
 ${PYTHON} -m pip install . -v
 
