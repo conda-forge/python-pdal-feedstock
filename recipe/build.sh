@@ -11,8 +11,15 @@ if [ "$target_platform" = "osx-arm64" ]; then
   export CMAKE_OSX_ARCHITECTURES="arm64"
 fi
 
+PY_VERSION=$(${PYTHON} -c "import sys; print(f'{sys.version_info.major}.{sys.version_info.minor}')")
+
+if [ "$CONDA_BUILD_CROSS_COMPILATION" == "1" ]; then
+    rm $BUILD_PREFIX/lib/libpdal*
+    rm $BUILD_PREFIX/lib/libpython*
+fi
+
 # scikit-build only passes PYTHON_EXECUTABLE and doesn't pass Python3_EXECUTABLE
-export CMAKE_ARGS="${CMAKE_ARGS} -DPDAL_DIR=$PREFIX -LAH"
+export CMAKE_ARGS="${CMAKE_ARGS} -DPDAL_DIR=$PREFIX -LAH --debug-find -DPython3_NumPy_INCLUDE_DIR=$PREFIX/lib/python${PY_VERSION}/site-packages/numpy/core/include/"
 
 ${PYTHON} -m pip install . -v
 
@@ -21,10 +28,6 @@ curl -OL https://files.pythonhosted.org/packages/ef/a7/eff3213c29a2c5e2c3de594f2
 tar xvf pdal-plugins-1.3.0.tar.gz
 cd pdal-plugins-1.3.0
 
-#if [ "$CONDA_BUILD_CROSS_COMPILATION" == "1" ]; then
-#rm $BUILD_PREFIX/lib/libpdal*
-#rm $BUILD_PREFIX/lib/libpython*
-#fi
 
 ${PYTHON} -m pip install . -vv
 cd ../..
