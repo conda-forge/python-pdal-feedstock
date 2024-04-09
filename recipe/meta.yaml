@@ -13,7 +13,7 @@ source:
 
 
 build:
-  number: 7
+  number: 8
   skip: true  # [(win and vc<14) or (py<36) or (py<38 and linux)]
 
 
@@ -29,7 +29,7 @@ requirements:
     - pybind11                               # [build_platform != target_platform]
     - curl
     - cmake
-    - pdal
+    - {{ pin_compatible('pdal', max_pin='x.x.x') }}
     - ninja
     - scikit-build
 
