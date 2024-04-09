@@ -29,7 +29,7 @@ requirements:
     - pybind11                               # [build_platform != target_platform]
     - curl
     - cmake
-    - pdal
+    - {{ pin_compatible('pdal', max_pin='x.x.x') }}
     - ninja
     - scikit-build
 
