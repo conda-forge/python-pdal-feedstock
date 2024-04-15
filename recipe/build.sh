@@ -21,7 +21,7 @@ fi
 # scikit-build only passes PYTHON_EXECUTABLE and doesn't pass Python3_EXECUTABLE
 export CMAKE_ARGS="${CMAKE_ARGS} -DPDAL_DIR=$PREFIX -LAH --debug-find -DPython3_NumPy_INCLUDE_DIR=$PREFIX/lib/python${PY_VERSION}/site-packages/numpy/core/include/"
 
-${PYTHON} -m pip install . -v
+${PYTHON} -m pip install . -vv --no-deps --no-build-isolation
 
 mkdir plugins && cd plugins
 curl -OL https://files.pythonhosted.org/packages/ef/a7/eff3213c29a2c5e2c3de594f2459412e3e11f7dff59ad52a8717810c8821/pdal-plugins-1.3.0.tar.gz
@@ -29,7 +29,7 @@ tar xvf pdal-plugins-1.3.0.tar.gz
 cd pdal-plugins-1.3.0
 
 
-${PYTHON} -m pip install . -vv
+${PYTHON} -m pip install . -vv --no-deps --no-build-isolation
 cd ../..
 
 ACTIVATE_DIR=$PREFIX/etc/conda/activate.d
