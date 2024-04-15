@@ -1,19 +1,17 @@
 {% set name = "python-pdal" %}
 {% set version = "3.3.0" %}
-{% set sha256 = "c6ea0b3a6ffa784db7fc74008ee61215bad46b481cf3a4657541b7c598aae0ba" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
   url: https://github.com/PDAL/python/archive/{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  sha256: c6ea0b3a6ffa784db7fc74008ee61215bad46b481cf3a4657541b7c598aae0ba
 
 
 build:
-  number: 8
+  number: 9
   skip: true  # [(win and vc<14) or (py<36) or (py<38 and linux)]
 
 
@@ -32,7 +30,6 @@ requirements:
     - {{ pin_compatible('pdal', max_pin='x.x.x') }}
     - ninja
     - scikit-build
-
   host:
     - python
     - pdal
@@ -46,8 +43,12 @@ requirements:
     - python
 
 test:
+  requires:
+    - pip
   commands:
-    - python -c "import pdal"
+    - pip check
+  imports:
+    - pdal
 
 about:
   home: https://pdal.io

@@ -1,8 +1,13 @@
 
 set CMAKE_GENERATOR=Ninja
-%PYTHON% setup.py install -vv -- -DPython3_EXECUTABLE="%PYTHON%"
 
 
+:: %PYTHON% setup.py install -vv -- -DPython3_EXECUTABLE="%PYTHON%"
+:: scikit-build only passes PYTHON_EXECUTABLE and doesn't pass Python3_EXECUTABLE
+set UNIX_SP_DIR=%SP_DIR:\=/%
+set CMAKE_ARGS=%CMAKE_ARGS% -DPDAL_DIR=$PREFIX -LAH --debug-find -DPYTHON3_NUMPY_INCLUDE_DIRS=%UNIX_SP_DIR%/numpy/core/include
+
+%PYTHON% -m pip install . -vv --no-deps --no-build-isolation
 
 mkdir plugins
 cd plugins
@@ -10,7 +15,7 @@ curl -OL https://files.pythonhosted.org/packages/ef/a7/eff3213c29a2c5e2c3de594f2
 tar xvf pdal-plugins-1.3.0.tar.gz
 cd pdal-plugins-1.3.0
 
-%PYTHON% -m pip install . -v
+%PYTHON% -m pip install . -vv --no-deps --no-build-isolation
 cd ../..
 
 set ACTIVATE_DIR=%PREFIX%\etc\conda\activate.d
