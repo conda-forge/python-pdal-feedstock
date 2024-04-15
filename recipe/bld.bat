@@ -7,7 +7,7 @@ set CMAKE_GENERATOR=Ninja
 set UNIX_SP_DIR=%SP_DIR:\=/%
 set CMAKE_ARGS=%CMAKE_ARGS% -DPDAL_DIR=$PREFIX -LAH --debug-find -DPYTHON3_NUMPY_INCLUDE_DIRS=%UNIX_SP_DIR%/numpy/core/include
 
-${PYTHON} -m pip install . -vv --no-deps --no-build-isolation
+%PYTHON% -m pip install . -vv --no-deps --no-build-isolation
 
 mkdir plugins
 cd plugins
