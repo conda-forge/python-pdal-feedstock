@@ -19,7 +19,6 @@ requirements:
   run_constrained:   # [osx]
   build:
     - {{ compiler('cxx') }}
-    - {{ stdlib("c") }}
     - make
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
@@ -29,14 +28,15 @@ requirements:
     - cmake
     - {{ pin_compatible('pdal', max_pin='x.x.x') }}
     - ninja
-    - scikit-build
+    - scikit-build-core
   host:
     - python
     - pdal
     - numpy
     - pybind11
-    - scikit-build
+    - scikit-build-core
     - pip
+
   run:
     - {{ pin_compatible('numpy') }}
     - {{ pin_compatible('pdal', max_pin='x.x.x') }}
