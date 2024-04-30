@@ -1,6 +1,4 @@
 
-set CMAKE_GENERATOR=Ninja
-
 
 :: %PYTHON% setup.py install -vv -- -DPython3_EXECUTABLE="%PYTHON%"
 :: scikit-build only passes PYTHON_EXECUTABLE and doesn't pass Python3_EXECUTABLE
