@@ -19,15 +19,14 @@ if [ "$CONDA_BUILD_CROSS_COMPILATION" == "1" ]; then
 fi
 
 # scikit-build only passes PYTHON_EXECUTABLE and doesn't pass Python3_EXECUTABLE
-export CMAKE_ARGS="${CMAKE_ARGS} -DPDAL_DIR=$PREFIX -LAH --debug-find -DPython3_NumPy_INCLUDE_DIR=$PREFIX/lib/python${PY_VERSION}/site-packages/numpy/core/include/"
+export CMAKE_ARGS="${CMAKE_ARGS} -DPDAL_DIR=$PREFIX -LAH -DPython3_NumPy_INCLUDE_DIR=$PREFIX/lib/python${PY_VERSION}/site-packages/numpy/core/include/"
 
 ${PYTHON} -m pip install . -vv --no-deps --no-build-isolation
 
 mkdir plugins && cd plugins
-curl -OL https://files.pythonhosted.org/packages/ef/a7/eff3213c29a2c5e2c3de594f2459412e3e11f7dff59ad52a8717810c8821/pdal-plugins-1.3.0.tar.gz
-tar xvf pdal-plugins-1.3.0.tar.gz
-cd pdal-plugins-1.3.0
-
+curl -OL https://files.pythonhosted.org/packages/a3/0a/65e7114cae766ffcfa94c31413197acd35213fd6a3461f656b8ff967a75a/pdal_plugins-1.5.0.tar.gz
+tar xvf pdal_plugins-1.5.0.tar.gz
+cd pdal_plugins-1.5.0
 
 ${PYTHON} -m pip install . -vv --no-deps --no-build-isolation
 cd ../..

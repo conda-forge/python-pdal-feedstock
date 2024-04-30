@@ -1,5 +1,5 @@
 {% set name = "python-pdal" %}
-{% set version = "3.3.0" %}
+{% set version = "3.4.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,17 +7,16 @@ package:
 
 source:
   url: https://github.com/PDAL/python/archive/{{ version }}.tar.gz
-  sha256: c6ea0b3a6ffa784db7fc74008ee61215bad46b481cf3a4657541b7c598aae0ba
+  sha256: 0c579305334f70aeda7097e02a5b9e38aac7a752b2d3e9b5d9711394a8eab2d0
 
 
 build:
-  number: 9
-  skip: true  # [(win and vc<14) or (py<36) or (py<38 and linux)]
+  number: 0
+  skip: true  # [(win and vc<14) or (py<39)]
 
 
 requirements:
   run_constrained:   # [osx]
-    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}      # [osx]
   build:
     - {{ compiler('cxx') }}
     - make
@@ -29,14 +28,15 @@ requirements:
     - cmake
     - {{ pin_compatible('pdal', max_pin='x.x.x') }}
     - ninja
-    - scikit-build
+    - scikit-build-core
   host:
     - python
     - pdal
     - numpy
     - pybind11
-    - scikit-build
+    - scikit-build-core
     - pip
+
   run:
     - {{ pin_compatible('numpy') }}
     - {{ pin_compatible('pdal', max_pin='x.x.x') }}
