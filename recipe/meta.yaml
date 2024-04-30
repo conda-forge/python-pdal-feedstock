@@ -12,7 +12,7 @@ source:
 
 build:
   number: 0
-  skip: true  # [(win and vc<14) or (py<36) or (py<38 and linux)]
+  skip: true  # [(win and vc<14) or (py<39)]
 
 
 requirements:
