@@ -11,7 +11,7 @@ source:
 
 
 build:
-  number: 0
+  number: 1
   skip: true  # [(win and vc<14) or (py<39)]
 
 
@@ -19,6 +19,7 @@ requirements:
   run_constrained:   # [osx]
   build:
     - {{ compiler('cxx') }}
+    - {{ stdlib("c") }}
     - make
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
@@ -45,6 +46,7 @@ requirements:
 test:
   requires:
     - pip
+    - pytest
   commands:
     - pip check
   imports:
