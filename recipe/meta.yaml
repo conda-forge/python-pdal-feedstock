@@ -1,5 +1,5 @@
 {% set name = "python-pdal" %}
-{% set version = "3.4.1" %}
+{% set version = "3.4.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://github.com/PDAL/python/archive/{{ version }}.tar.gz
-  sha256: 0c579305334f70aeda7097e02a5b9e38aac7a752b2d3e9b5d9711394a8eab2d0
+  sha256: 8d2e71f1527462676ee68e1a537ba26b642c20db4774beece8212584d8c10d80
 
 
 build:
-  number: 1
+  number: 0
   skip: true  # [(win and vc<14) or (py<39)]
 
 
