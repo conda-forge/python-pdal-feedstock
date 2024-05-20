@@ -11,7 +11,7 @@ source:
 
 
 build:
-  number: 0
+  number: 1
   skip: true  # [(win and vc<14) or (py<39)]
 
 
@@ -39,7 +39,6 @@ requirements:
     - pip
 
   run:
-    - {{ pin_compatible('numpy') }}
     - {{ pin_compatible('pdal', max_pin='x.x.x') }}
     - python
 
