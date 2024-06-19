@@ -9,9 +9,9 @@ set CMAKE_ARGS=%CMAKE_ARGS% -DPDAL_DIR=$PREFIX -LAH --debug-find -DPYTHON3_NUMPY
 
 mkdir plugins
 cd plugins
-curl -OL https://files.pythonhosted.org/packages/a3/0a/65e7114cae766ffcfa94c31413197acd35213fd6a3461f656b8ff967a75a/pdal_plugins-1.5.0.tar.gz
-tar xvf pdal_plugins-1.5.0.tar.gz
-cd pdal_plugins-1.5.0
+curl -OL https://files.pythonhosted.org/packages/0a/1c/c10b9ca583fbf31e5afa137a41f45472e26808df6e869a9cb1064923961c/pdal_plugins-1.5.2.tar.gz
+tar xvf pdal_plugins-1.5.2.tar.gz
+cd pdal_plugins-1.5.2
 
 %PYTHON% -m pip install . -vv --no-deps --no-build-isolation
 cd ../..
