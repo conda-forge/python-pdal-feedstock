@@ -24,9 +24,9 @@ export CMAKE_ARGS="${CMAKE_ARGS} -DPDAL_DIR=$PREFIX -LAH -DPython3_NumPy_INCLUDE
 ${PYTHON} -m pip install . -vv --no-deps --no-build-isolation
 
 mkdir plugins && cd plugins
-curl -OL https://files.pythonhosted.org/packages/17/67/0190c89b2af7e322f3558290ca94cdbc502e8ad882af1f4daf3268480a01/pdal_plugins-1.5.1.tar.gz
-tar xvf pdal_plugins-1.5.1.tar.gz
-cd pdal_plugins-1.5.1
+curl -OL https://files.pythonhosted.org/packages/0a/1c/c10b9ca583fbf31e5afa137a41f45472e26808df6e869a9cb1064923961c/pdal_plugins-1.5.2.tar.gz
+tar xvf pdal_plugins-1.5.2.tar.gz
+cd pdal_plugins-1.5.2
 
 ${PYTHON} -m pip install . -vv --no-deps --no-build-isolation
 cd ../..
