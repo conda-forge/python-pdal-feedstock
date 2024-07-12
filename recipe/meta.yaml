@@ -11,7 +11,7 @@ source:
 
 
 build:
-  number: 1
+  number: 2
   skip: true  # [(win and vc<14) or (py<39)]
 
 
@@ -27,7 +27,7 @@ requirements:
     - pybind11                               # [build_platform != target_platform]
     - curl
     - cmake
-    - {{ pin_compatible('pdal', max_pin='x.x.x') }}
+    - pdal
     - ninja
     - scikit-build-core
   host:
@@ -39,8 +39,8 @@ requirements:
     - pip
 
   run:
-    - {{ pin_compatible('numpy') }}
-    - {{ pin_compatible('pdal', max_pin='x.x.x') }}
+    - numpy
+    - pdal
     - python
 
 test:
