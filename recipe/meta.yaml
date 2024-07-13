@@ -9,11 +9,9 @@ source:
   url: https://github.com/PDAL/python/archive/{{ version }}.tar.gz
   sha256: b264ccd29d349ae2b911cafda8aae4ecafe464a1a62f6c02ad3bf038f660154d
 
-
 build:
-  number: 2
+  number: 3
   skip: true  # [(win and vc<14) or (py<39)]
-
 
 requirements:
   run_constrained:   # [osx]
@@ -32,15 +30,13 @@ requirements:
     - scikit-build-core
   host:
     - python
-    - pdal
+    - libpdal-core
     - numpy
     - pybind11
     - scikit-build-core
     - pip
-
   run:
     - numpy
-    - pdal
     - python
 
 test:
