@@ -16,6 +16,8 @@ cxx_compiler_version:
 - '12'
 docker_image:
 - quay.io/condaforge/linux-anvil-cos7-x86_64
+libpdal_core:
+- '2.7'
 numpy:
 - '1.23'
 pdal:
