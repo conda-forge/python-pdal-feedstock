@@ -14,7 +14,6 @@ fi
 PY_VERSION=$(${PYTHON} -c "import sys; print(f'{sys.version_info.major}.{sys.version_info.minor}')")
 
 if [ "$CONDA_BUILD_CROSS_COMPILATION" == "1" ]; then
-    rm $BUILD_PREFIX/lib/libpdal*
     rm $BUILD_PREFIX/lib/libpython*
 fi
 
