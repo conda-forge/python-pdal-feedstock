@@ -36,5 +36,5 @@ DEACTIVATE_DIR=$PREFIX/etc/conda/deactivate.d
 mkdir -p $ACTIVATE_DIR
 mkdir -p $DEACTIVATE_DIR
 
-sed 's#@PLUGIN_DIR_PATH@#${SP_DIR}/pdal#g' $RECIPE_DIR/scripts/activate.sh >> $ACTIVATE_DIR/pdal-python-activate.sh
+sed "s#@PLUGIN_DIR_PATH@#${SP_DIR}/pdal#g" $RECIPE_DIR/scripts/activate.sh >> $ACTIVATE_DIR/pdal-python-activate.sh
 cp $RECIPE_DIR/scripts/deactivate.sh $DEACTIVATE_DIR/pdal-python-deactivate.sh
