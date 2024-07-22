@@ -27,6 +27,8 @@ requirements:
     - cmake
     - ninja
     - scikit-build-core
+    - m2-sed   # [win]
+    - sed      # [unix]
   host:
     - python
     - libpdal-core
