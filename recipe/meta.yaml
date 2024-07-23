@@ -25,9 +25,10 @@ requirements:
     - pybind11                               # [build_platform != target_platform]
     - curl
     - cmake
-    - pdal
     - ninja
     - scikit-build-core
+    - m2-sed   # [win]
+    - sed      # [unix]
   host:
     - python
     - libpdal-core
