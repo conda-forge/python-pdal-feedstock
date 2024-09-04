@@ -15,7 +15,7 @@ curl:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '16'
+- '17'
 libpdal_core:
 - '2.7'
 macos_machine:
@@ -35,3 +35,4 @@ target_platform:
 zip_keys:
 - - python
   - numpy
+  - channel_sources
