@@ -9,11 +9,11 @@ curl:
 cxx_compiler:
 - vs2019
 libpdal_core:
-- 2.8.0
+- 2.8.2
 numpy:
 - '2.0'
 pdal:
-- 2.8.0
+- 2.8.2
 pin_run_as_build:
   python:
     min_pin: x.x
@@ -25,4 +25,3 @@ target_platform:
 zip_keys:
 - - python
   - numpy
-  - channel_sources
