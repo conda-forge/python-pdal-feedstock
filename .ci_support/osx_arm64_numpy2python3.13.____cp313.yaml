@@ -17,13 +17,13 @@ cxx_compiler:
 cxx_compiler_version:
 - '18'
 libpdal_core:
-- 2.8.2
+- 2.8.4
 macos_machine:
 - arm64-apple-darwin20.0.0
 numpy:
 - '2'
 pdal:
-- 2.8.2
+- 2.8.4
 pin_run_as_build:
   python:
     min_pin: x.x
