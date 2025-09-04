@@ -32,11 +32,12 @@ requirements:
   host:
     - python
     - libpdal-core
-    - numpy >=2.1
+    - numpy
     - pybind11
     - scikit-build-core
   run:
     - python
+    - numpy
 
 test:
   requires:
