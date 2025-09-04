@@ -11,7 +11,7 @@ source:
 
 build:
   number: 0
-  skip: true  # [py<=39]
+  skip: true  # [py<310]
 
 requirements:
   run_constrained:   # [osx]
@@ -32,13 +32,9 @@ requirements:
   host:
     - python
     - libpdal-core
-    - numpy
+    - numpy >=2.1
     - pybind11
     - scikit-build-core
-    - pip
-  run:
-    - numpy
-    - python
 
 test:
   requires:
