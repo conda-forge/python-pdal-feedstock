@@ -35,6 +35,8 @@ requirements:
     - numpy >=2.1
     - pybind11
     - scikit-build-core
+  run:
+    - python
 
 test:
   requires:
