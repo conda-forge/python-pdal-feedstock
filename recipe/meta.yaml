@@ -23,10 +23,10 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
     - pybind11                               # [build_platform != target_platform]
+    - scikit-build-core                      # [build_platform != target_platform]
     - curl
     - cmake
     - ninja
-    - scikit-build-core
     - m2-sed   # [win]
     - sed      # [unix]
   host:
@@ -35,6 +35,7 @@ requirements:
     - numpy
     - pybind11
     - scikit-build-core
+    - pip
   run:
     - python
     - numpy
