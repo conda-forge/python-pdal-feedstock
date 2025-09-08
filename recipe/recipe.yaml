@@ -48,7 +48,6 @@ requirements:
   run:
     - python
     - numpy
-  run_constraints:
 
 tests:
   - python:
