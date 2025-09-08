@@ -1,0 +1,76 @@
+schema_version: 1
+
+context:
+  name: python-pdal
+  version: 3.5.3
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://github.com/PDAL/python/archive/${{ version }}.tar.gz
+  sha256: 59271e46ffa12e8714cb098865c7185a8dd896c885ba6558dfa4b9b83d932c59
+
+build:
+  number: 2
+  skip: match(python, "<3.10")
+
+requirements:
+  build:
+    - ${{ compiler('cxx') }}
+    - ${{ stdlib("c") }}
+    - make
+    - if: build_platform != target_platform
+      then: python
+    - if: build_platform != target_platform
+      then: cross-python_${{ target_platform }}
+    - if: build_platform != target_platform
+      then: numpy
+    - if: build_platform != target_platform
+      then: pybind11
+    - if: build_platform != target_platform
+      then: scikit-build-core
+    - curl
+    - cmake
+    - ninja
+    - if: win
+      then: m2-sed
+    - if: unix
+      then: sed
+  host:
+    - python
+    - libpdal-core
+    - numpy
+    - pybind11
+    - scikit-build-core
+    - pip
+  run:
+    - python
+    - numpy
+
+tests:
+  - python:
+      imports:
+        - pdal
+  - requirements:
+      run:
+        - pip
+        - pytest
+    script:
+      - pip check
+
+about:
+  license: BSD-3-Clause
+  license_file: LICENSE.txt
+  summary: Point Data Abstraction Library (PDAL) Python Package
+  description: |
+    Python package for the PDAL library.
+  homepage: https://pdal.io
+  repository: https://github.com/PDAL/python
+  documentation: https://pdal.io
+
+extra:
+  recipe-maintainers:
+    - chambbj
+    - hobu

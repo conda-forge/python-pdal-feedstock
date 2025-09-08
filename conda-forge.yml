@@ -15,3 +15,5 @@ provider:
   osx: azure
   win: azure
 test: native
+conda_install_tool: pixi
+conda_build_tool: rattler-build

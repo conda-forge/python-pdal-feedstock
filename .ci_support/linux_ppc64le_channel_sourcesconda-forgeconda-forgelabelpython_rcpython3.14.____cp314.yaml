@@ -5,7 +5,7 @@ c_stdlib_version:
 cdt_name:
 - conda
 channel_sources:
-- conda-forge
+- conda-forge,conda-forge/label/python_rc
 channel_targets:
 - conda-forge main
 curl:
@@ -20,14 +20,12 @@ libpdal_core:
 - 2.9.1
 numpy:
 - '2'
-pdal:
-- 2.9.1
 pin_run_as_build:
   python:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.13.* *_cp313
+- 3.14.* *_cp314
 target_platform:
 - linux-ppc64le
 zip_keys:
