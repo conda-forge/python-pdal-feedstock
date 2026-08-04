@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: python-pdal
-  version: "3.5.4"
+  version: "3.5.5"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://github.com/PDAL/python/archive/${{ version }}.tar.gz
-  sha256: c51542a99f5a770ba6154a45b48c5cacab5c068583894164175fa2d62a14db5f
+  sha256: 0f07e452e38f7a6bc0dee5b5d5affad898ac98a0861c2ad0c5ce7ab227760ce1
 
 build:
   number: 0
