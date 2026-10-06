@@ -13,7 +13,7 @@ source:
   sha256: 0f07e452e38f7a6bc0dee5b5d5affad898ac98a0861c2ad0c5ce7ab227760ce1
 
 build:
-  number: 0
+  number: 1
   skip: match(python, "<3.10")
 
 requirements:
@@ -38,6 +38,9 @@ requirements:
   host:
     - python
     - libpdal-core
+    - if: python > 3.14
+      then:
+        - libpython
     - numpy
     - pybind11
     - scikit-build-core
